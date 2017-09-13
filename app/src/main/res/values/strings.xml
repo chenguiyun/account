@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">MyAccount</string>
     <string name="title_activity_out_come">OutComeActivity</string>
+    <string name="Money">理财通</string>
+    <string name="pwd">请输入密码</string>
+    <string name="pay">支出</string>
+    <string name="revenue">收入</string>
+    <string name="note">便签</string>
+    <string name="install">设置</string>
 </resources>
