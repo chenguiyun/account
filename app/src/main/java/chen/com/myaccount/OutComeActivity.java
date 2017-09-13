@@ -1,20 +1,19 @@
 package chen.com.myaccount;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import chen.com.myaccount.bean.Outaccount;
+import chen.com.myaccount.util.GreenDaoUtil;
+import greendao.gen.DaoSession;
 
 
 public class OutComeActivity extends AppCompatActivity {
@@ -84,7 +83,7 @@ public class OutComeActivity extends AppCompatActivity {
             this.mark = mark;
         }
     }
-
+    private DaoSession session;
     ImageView imgbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,10 +91,11 @@ public class OutComeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_out_come);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        GreenDaoUtil util=new GreenDaoUtil(this,"account");
+        session=util.getSession();
 
         outadapter outadapter=new outadapter(this);
-        tb_outaccount tb1=new tb_outaccount(1,100,"2017-8-1","旅游","昆明","花钱多");
+        /*tb_outaccount tb1=new tb_outaccount(1,100,"2017-8-1","旅游","昆明","花钱多");
         tb_outaccount tb2=new tb_outaccount(2,200,"2017-8-1","旅游","昆明","花钱多");
         tb_outaccount tb3=new tb_outaccount(3,300,"2017-8-1","旅游","昆明","花钱多");
         tb_outaccount tb4=new tb_outaccount(4,400,"2017-8-1","旅游","昆明","花钱多");
@@ -105,7 +105,11 @@ public class OutComeActivity extends AppCompatActivity {
         outaccountList.add(tb3);
         outaccountList.add(tb4);
         outaccountList.add(tb5);
-        outadapter.outaccountList=outaccountList;
+        */
+        Outaccount outaccount=new  Outaccount(100,"2017-8-1","旅游","昆明","花钱多");
+        session.getOutaccountDao().insert(outaccount);
+        List<Outaccount> list=session.getOutaccountDao().queryBuilder().list();
+        outadapter.outaccountList=list;
         ListView lv=(ListView)findViewById(R.id.outcomelv);
         lv.setAdapter(outadapter);
 

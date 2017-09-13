@@ -11,7 +11,7 @@ import org.greenrobot.greendao.annotation.Generated;
 @Entity
 public class Inaccount {
     @Id
-    private long id;
+    private Long id;
     @NotNull
     private double money;
     @NotNull
@@ -50,14 +50,14 @@ public class Inaccount {
     public void setMoney(double money) {
         this.money = money;
     }
-    public long getId() {
+    public Long getId() {
         return this.id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
-    @Generated(hash = 1408488047)
-    public Inaccount(long id, double money, @NotNull String time,
+    @Generated(hash = 1907772248)
+    public Inaccount(Long id, double money, @NotNull String time,
             @NotNull String type, String handler, String mark) {
         this.id = id;
         this.money = money;
@@ -69,4 +69,5 @@ public class Inaccount {
     @Generated(hash = 118929655)
     public Inaccount() {
     }
+
 }

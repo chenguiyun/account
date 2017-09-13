@@ -24,7 +24,7 @@ public class OutaccountDao extends AbstractDao<Outaccount, Long> {
      * Can be used for QueryBuilder and for referencing column names.
     */
     public static class Properties {
-        public final static Property Id = new Property(0, long.class, "id", true, "_id");
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Money = new Property(1, double.class, "money", false, "MONEY");
         public final static Property Time = new Property(2, String.class, "time", false, "TIME");
         public final static Property Type = new Property(3, String.class, "type", false, "TYPE");
@@ -45,7 +45,7 @@ public class OutaccountDao extends AbstractDao<Outaccount, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"OUTACCOUNT\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY NOT NULL ," + // 0: id
+                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"MONEY\" REAL NOT NULL ," + // 1: money
                 "\"TIME\" TEXT NOT NULL ," + // 2: time
                 "\"TYPE\" TEXT NOT NULL ," + // 3: type
@@ -62,7 +62,11 @@ public class OutaccountDao extends AbstractDao<Outaccount, Long> {
     @Override
     protected final void bindValues(DatabaseStatement stmt, Outaccount entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
         stmt.bindDouble(2, entity.getMoney());
         stmt.bindString(3, entity.getTime());
         stmt.bindString(4, entity.getType());
@@ -81,7 +85,11 @@ public class OutaccountDao extends AbstractDao<Outaccount, Long> {
     @Override
     protected final void bindValues(SQLiteStatement stmt, Outaccount entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
         stmt.bindDouble(2, entity.getMoney());
         stmt.bindString(3, entity.getTime());
         stmt.bindString(4, entity.getType());
@@ -99,13 +107,13 @@ public class OutaccountDao extends AbstractDao<Outaccount, Long> {
 
     @Override
     public Long readKey(Cursor cursor, int offset) {
-        return cursor.getLong(offset + 0);
+        return cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0);
     }    
 
     @Override
     public Outaccount readEntity(Cursor cursor, int offset) {
         Outaccount entity = new Outaccount( //
-            cursor.getLong(offset + 0), // id
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getDouble(offset + 1), // money
             cursor.getString(offset + 2), // time
             cursor.getString(offset + 3), // type
@@ -117,7 +125,7 @@ public class OutaccountDao extends AbstractDao<Outaccount, Long> {
      
     @Override
     public void readEntity(Cursor cursor, Outaccount entity, int offset) {
-        entity.setId(cursor.getLong(offset + 0));
+        entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setMoney(cursor.getDouble(offset + 1));
         entity.setTime(cursor.getString(offset + 2));
         entity.setType(cursor.getString(offset + 3));

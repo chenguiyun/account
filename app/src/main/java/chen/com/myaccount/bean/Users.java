@@ -11,7 +11,7 @@ import org.greenrobot.greendao.annotation.NotNull;
 @Entity
 public class Users {
     @Id
-    private long id;
+    private Long id;
     @NotNull
     private String password;
     public String getPassword() {
@@ -20,18 +20,19 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-    public long getId() {
+    public Long getId() {
         return this.id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
-    @Generated(hash = 580271639)
-    public Users(long id, @NotNull String password) {
+    @Generated(hash = 1879200408)
+    public Users(Long id, @NotNull String password) {
         this.id = id;
         this.password = password;
     }
     @Generated(hash = 2146996206)
     public Users() {
     }
+
 }

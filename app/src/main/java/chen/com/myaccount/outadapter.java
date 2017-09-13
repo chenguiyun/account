@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.zip.Inflater;
 
 import chen.com.myaccount.OutComeActivity;
+import chen.com.myaccount.bean.Outaccount;
 
 /**
  * Created by ios19 on 2017/9/13.
@@ -21,7 +22,7 @@ import chen.com.myaccount.OutComeActivity;
 
 public class outadapter extends BaseAdapter {
 
-    public List<OutComeActivity.tb_outaccount> outaccountList;
+    public List<Outaccount> outaccountList;
     public Context context;
     private  LayoutInflater layoutInflater;
     public outadapter(Context context) {

@@ -11,7 +11,7 @@ import org.greenrobot.greendao.annotation.Generated;
 @Entity
 public class Flag {
     @Id
-    private long id;
+    private Long id;
     @NotNull
     private String flag;
     public String getFlag() {
@@ -20,14 +20,14 @@ public class Flag {
     public void setFlag(String flag) {
         this.flag = flag;
     }
-    public long getId() {
+    public Long getId() {
         return this.id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
-    @Generated(hash = 1192702733)
-    public Flag(long id, @NotNull String flag) {
+    @Generated(hash = 1675495266)
+    public Flag(Long id, @NotNull String flag) {
         this.id = id;
         this.flag = flag;
     }

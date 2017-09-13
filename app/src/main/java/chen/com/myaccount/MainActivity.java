@@ -8,11 +8,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
-import java.util.regex.Matcher;
 
 import chen.com.myaccount.bean.Users;
 import chen.com.myaccount.util.GreenDaoUtil;
-import greendao.gen.DaoMaster;
 import greendao.gen.DaoSession;
 import greendao.gen.UsersDao;
 
@@ -34,7 +32,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         initView();//初始化页面控件
         GreenDaoUtil util=new GreenDaoUtil(this,"account");
-        util.initDb();
         session=util.session;
     }
 
@@ -98,6 +95,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void queryLike(){
         List<Users> userList = session.getUsersDao().queryBuilder().where(UsersDao.Properties.Password.like("%lihy%")).list();
     }
+
 
     private void queryBetween(){
         //List<UserInfo> userList = userInfoDao.queryBuilder().where(UserInfoDao.Properties.Age.between(0, 10)).list();

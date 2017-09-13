@@ -24,7 +24,7 @@ public class FlagDao extends AbstractDao<Flag, Long> {
      * Can be used for QueryBuilder and for referencing column names.
     */
     public static class Properties {
-        public final static Property Id = new Property(0, long.class, "id", true, "_id");
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Flag = new Property(1, String.class, "flag", false, "FLAG");
     };
 
@@ -41,7 +41,7 @@ public class FlagDao extends AbstractDao<Flag, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"FLAG\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY NOT NULL ," + // 0: id
+                "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
                 "\"FLAG\" TEXT NOT NULL );"); // 1: flag
     }
 
@@ -54,26 +54,34 @@ public class FlagDao extends AbstractDao<Flag, Long> {
     @Override
     protected final void bindValues(DatabaseStatement stmt, Flag entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
         stmt.bindString(2, entity.getFlag());
     }
 
     @Override
     protected final void bindValues(SQLiteStatement stmt, Flag entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
         stmt.bindString(2, entity.getFlag());
     }
 
     @Override
     public Long readKey(Cursor cursor, int offset) {
-        return cursor.getLong(offset + 0);
+        return cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0);
     }    
 
     @Override
     public Flag readEntity(Cursor cursor, int offset) {
         Flag entity = new Flag( //
-            cursor.getLong(offset + 0), // id
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1) // flag
         );
         return entity;
@@ -81,7 +89,7 @@ public class FlagDao extends AbstractDao<Flag, Long> {
      
     @Override
     public void readEntity(Cursor cursor, Flag entity, int offset) {
-        entity.setId(cursor.getLong(offset + 0));
+        entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setFlag(cursor.getString(offset + 1));
      }
     

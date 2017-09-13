@@ -12,7 +12,7 @@ import greendao.gen.DaoSession;
 public class GreenDaoUtil {
     private  DaoMaster.DevOpenHelper helper;
     private  DaoMaster master;
-    public  DaoSession session;
+    public DaoSession session;
     private Context context;
     private String dbName;
 
@@ -20,11 +20,12 @@ public class GreenDaoUtil {
         super();
         this.context = context;
         this.dbName = dbName.equals(".db")?dbName:dbName+".db";
+        initDb();
     }
     /**
      *初始化数据库
      */
-    public  void initDb(){
+    private   void initDb(){
         helper = new DaoMaster.DevOpenHelper(context,dbName, null);
         master = new DaoMaster(helper.getWritableDatabase());
         session = master.newSession();

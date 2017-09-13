@@ -10,8 +10,8 @@ import org.greenrobot.greendao.annotation.NotNull;
  */
 @Entity
 public class Outaccount {
-    @Id
-    private long id;
+    @Id(autoincrement = true)
+    private Long id;
     @NotNull
     private double money;
     @NotNull
@@ -50,14 +50,23 @@ public class Outaccount {
     public void setMoney(double money) {
         this.money = money;
     }
-    public long getId() {
+    public Long getId() {
         return this.id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
-    @Generated(hash = 25362077)
-    public Outaccount(long id, double money, @NotNull String time,
+
+    public Outaccount(double money, String time, String type, String address, String mark) {
+        this.money = money;
+        this.time = time;
+        this.type = type;
+        this.address = address;
+        this.mark = mark;
+    }
+
+    @Generated(hash = 2093459226)
+    public Outaccount(Long id, double money, @NotNull String time,
             @NotNull String type, String address, String mark) {
         this.id = id;
         this.money = money;
@@ -69,5 +78,6 @@ public class Outaccount {
     @Generated(hash = 1970383699)
     public Outaccount() {
     }
+
 
 }
