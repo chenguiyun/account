@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyAccount</string>
+    <string name="title_activity_out_come">OutComeActivity</string>
 </resources>
