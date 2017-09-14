@@ -12,25 +12,31 @@
 
     <TextView
         android:id="@+id/outmoney"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text=""
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/outdate"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text=""
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/outaddress"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text=""
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"/>
 </LinearLayout>

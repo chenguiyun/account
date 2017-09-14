@@ -136,8 +136,9 @@ public class OutComeFragment extends Fragment  {
         outaccountList.add(tb5);
         */
 
-        Outaccount outaccount = new Outaccount(100, "2017-8-1", "旅游", "昆明", "花钱多");
-        session.getOutaccountDao().insert(outaccount);
+        //Outaccount outaccount = new Outaccount(100, "2017-8-1", "旅游", "昆明", "花钱多");
+        //session.getOutaccountDao().insert(outaccount);
+        //session.getOutaccountDao().deleteAll();
         List<Outaccount> list = session.getOutaccountDao().queryBuilder().list();
         outadapter.outaccountList = list;
         ListView lv=(ListView)view.findViewById(R.id.outcomelv);

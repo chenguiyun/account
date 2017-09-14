@@ -95,8 +95,8 @@
                 android:text="支出地址：" />
 
             <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView"
-                android:layout_width="wrap_content"
+                android:id="@+id/autoCompleteTextViewaddress"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="" />
@@ -116,13 +116,21 @@
                 android:text="支出备注：" />
 
             <MultiAutoCompleteTextView
-                android:id="@+id/multiAutoCompleteTextView"
-                android:layout_width="wrap_content"
+                android:id="@+id/multiAutoCompleteTextViewmark"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="" />
 
+
+
         </LinearLayout>
+        <Button
+            android:id="@+id/btnaddoutcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="确定" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
