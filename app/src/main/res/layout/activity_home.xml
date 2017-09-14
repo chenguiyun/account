@@ -4,25 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:id="@+id/ly_top_bar">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/lct_top_title"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="@string/Money"
-            android:textColor="@color/text_topbar"
-            android:textSize="18sp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:layout_alignParentBottom="true"
-            android:background="@color/div_white"/>
-    </RelativeLayout>
+
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -70,5 +52,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/div_tab_bar"
-        android:layout_below="@+id/ly_top_bar"/>
+        />
 </RelativeLayout>

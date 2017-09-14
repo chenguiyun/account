@@ -89,8 +89,6 @@ public class OutComeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_out_come);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         GreenDaoUtil util=new GreenDaoUtil(this,"account");
         session=util.getSession();
 

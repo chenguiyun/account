@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public  class Home extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener,
-        ViewPager.OnPageChangeListener,OutComeFragment.OnFragmentInteractionListener,BlankFragment.OnFragmentInteractionListener{
+        ViewPager.OnPageChangeListener,OutComeFragment.OnFragmentInteractionListener{
     private TextView txt_topbar;
     private RadioGroup rg_tab_bar;
     private RadioButton rb_channel;
