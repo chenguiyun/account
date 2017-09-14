@@ -53,6 +53,15 @@ public class Inaccount {
     public Long getId() {
         return this.id;
     }
+
+    public Inaccount(double money, String time, String type, String handler, String mark) {
+        this.money = money;
+        this.time = time;
+        this.type = type;
+        this.handler = handler;
+        this.mark = mark;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

@@ -14,6 +14,11 @@ public class Users {
     private Long id;
     @NotNull
     private String password;
+
+    public Users(String password) {
+        this.password = password;
+    }
+
     public String getPassword() {
         return this.password;
     }
