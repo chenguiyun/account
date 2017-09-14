@@ -1,15 +1,19 @@
 package chen.com.myaccount;
 
+import android.app.Fragment;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class Home extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener,
-        ViewPager.OnPageChangeListener{
+public  class Home extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener,
+        ViewPager.OnPageChangeListener,OutComeFragment.OnFragmentInteractionListener,BlankFragment.OnFragmentInteractionListener{
     private TextView txt_topbar;
     private RadioGroup rg_tab_bar;
     private RadioButton rb_channel;
@@ -94,5 +98,9 @@ public class Home extends AppCompatActivity implements RadioGroup.OnCheckedChang
                 vpager.setCurrentItem(page_four);
                 break;
         }
+    }
+    private FragmentManager fm = null;
+    @Override
+    public void onFragmentInteraction(Uri uri) {
     }
 }

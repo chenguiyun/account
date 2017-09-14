@@ -19,5 +19,6 @@ public class Installment extends Fragment {
         TextView txt_content=(TextView) view.findViewById(R.id.txt_context);
         Log.e("1","2");
         return view;
+
     }
 }
