@@ -44,7 +44,7 @@ public class IndexActivity extends ActivityGroup {
         tabhost.addTab(tabhost.newTabSpec("zhichu")
                 .setContent(new Intent(this, OutActivity.class)).setIndicator("zhichu"));
         tabhost.addTab(tabhost.newTabSpec("bianqing")
-                .setContent(new Intent(this,OutActivity.class)).setIndicator("bianqing"));
+                .setContent(new Intent(this,ShowInfo.class)).setIndicator("bianqing"));
         tabhost.addTab(tabhost.newTabSpec("shezhi")
                 .setContent(new Intent(this,OutActivity.class)).setIndicator("shezhi"));
         mainRadiogroup=findViewById(R.id.tabGroup);

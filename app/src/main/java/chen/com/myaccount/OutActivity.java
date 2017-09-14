@@ -26,7 +26,7 @@ public class OutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_out);
         GreenDaoUtil util=new GreenDaoUtil(this,"account");
         session=util.getSession();
-        //session.getOutaccountDao().insert(new Outaccount(100,"2017-11-21","工资","昆明","发放工资的"));
+      //  session.getOutaccountDao().insert(new Outaccount(100,"2017-11-21","工资","昆明","发放工资的"));
         List<Outaccount> list=session.getOutaccountDao().queryBuilder().list();
         final ComeOutadapter outadapter=new ComeOutadapter(this,list);
         listView=(ListView)findViewById(R.id.newoutcome);
