@@ -14,6 +14,11 @@ public class Flag {
     private Long id;
     @NotNull
     private String flag;
+
+    public Flag(String flag) {
+        this.flag = flag;
+    }
+
     public String getFlag() {
         return this.flag;
     }
