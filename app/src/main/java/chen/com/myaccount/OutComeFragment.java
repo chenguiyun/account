@@ -9,9 +9,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,7 +124,7 @@ public class OutComeFragment extends Fragment  {
         GreenDaoUtil util = new GreenDaoUtil(this.getActivity(), "account");
         session = util.getSession();
 
-        outadapter outadapter = new outadapter(this.getActivity());
+
         /*
         tb_outaccount tb1=new tb_outaccount(1,100,"2017-8-1","旅游","昆明","花钱多");
         tb_outaccount tb2=new tb_outaccount(2,200,"2017-8-1","旅游","昆明","花钱多");
@@ -139,11 +141,25 @@ public class OutComeFragment extends Fragment  {
         //Outaccount outaccount = new Outaccount(100, "2017-8-1", "旅游", "昆明", "花钱多");
         //session.getOutaccountDao().insert(outaccount);
         //session.getOutaccountDao().deleteAll();
+        final outadapter outadapter= new outadapter(this.getActivity());
         List<Outaccount> list = session.getOutaccountDao().queryBuilder().list();
         outadapter.outaccountList = list;
-        ListView lv=(ListView)view.findViewById(R.id.outcomelv);
+        final ListView lv=(ListView)view.findViewById(R.id.outcomelv);
         lv.setAdapter(outadapter);
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                outadapter.maps(i,true);
+                outadapter.getView(i,view,null);
+                lv.setAdapter(outadapter);
+                return false;
+            }
+        });
+        if (outadapter.map.size()==0)
+        {
+            lv.setAdapter(outadapter);
+        }
         imgbtn=(ImageView)view.findViewById(R.id.outimageButton);
         final Intent intent=new Intent(getActivity(),OutComeAddActivity.class);
         imgbtn.setOnClickListener(new View.OnClickListener() {

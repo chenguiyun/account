@@ -3,13 +3,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <CheckBox
-        android:id="@+id/outcheckbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="" />
-
     <TextView
         android:id="@+id/outmoney"
         android:layout_width="120dp"
@@ -39,4 +32,12 @@
         android:textSize="24sp"
         android:layout_gravity="center"
         android:textAlignment="center"/>
+
+    <ImageButton
+        android:id="@+id/outimageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text=""
+        android:src="@android:drawable/ic_delete"/>
 </LinearLayout>
