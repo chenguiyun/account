@@ -22,6 +22,8 @@ import java.util.zip.Inflater;
 
 import chen.com.myaccount.OutComeActivity;
 import chen.com.myaccount.bean.Outaccount;
+import chen.com.myaccount.util.GreenDaoUtil;
+import greendao.gen.DaoSession;
 
 import  android.support.v4.content.ContextCompat.*;
 
@@ -30,6 +32,7 @@ import  android.support.v4.content.ContextCompat.*;
  */
 
 public class outadapter extends BaseAdapter {
+    GreenDaoUtil util = new GreenDaoUtil(this.context, "account");
 
     public static List<Outaccount> outaccountList;
     public Context context;
@@ -38,6 +41,7 @@ public class outadapter extends BaseAdapter {
         super();
         this.context=context;
     }
+    private DaoSession session;
 
     @Override
     public int getCount() {
@@ -101,14 +105,15 @@ public class outadapter extends BaseAdapter {
                 new AlertDialog.Builder(context).setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                         session=util.getSession();
+                        session.getOutaccountDao().deleteByKey(outaccountList.get(i).getId());
                     }
                 }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         map.clear();
-                        Fragment  o=(Fragment)view.getParent().getParent().getParent();
-                        o.getActivity();
+                        //Fragment  o=(Fragment)view.getParent().getParent().getParent();
+                        //o.getActivity();
                     }
                 }).setTitle("确定删除？")
                         .setIcon(android.R.drawable.ic_menu_info_details)
