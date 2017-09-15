@@ -1,7 +1,9 @@
 package chen.com.myaccount;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -142,18 +144,28 @@ public class OutComeFragment extends Fragment  {
         //session.getOutaccountDao().insert(outaccount);
         //session.getOutaccountDao().deleteAll();
         final outadapter outadapter= new outadapter(this.getActivity());
-        List<Outaccount> list = session.getOutaccountDao().queryBuilder().list();
+        final List<Outaccount> list = session.getOutaccountDao().queryBuilder().list();
         outadapter.outaccountList = list;
         final ListView lv=(ListView)view.findViewById(R.id.outcomelv);
         lv.setAdapter(outadapter);
+        int as=100;
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, final View view, int i, long l) {
 
                 outadapter.maps(i,true);
                 outadapter.getView(i,view,null);
                 lv.setAdapter(outadapter);
                 return false;
+            }
+        });
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent();
+                intent.setClass(getActivity(),OutcomeeditsActivity.class);
+                intent.putExtra("id",""+list.get(i).getId());
+                startActivity(intent);
             }
         });
         if (outadapter.map.size()==0)

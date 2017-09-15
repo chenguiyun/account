@@ -1,5 +1,6 @@
 package chen.com.myaccount;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -32,7 +33,7 @@ import  android.support.v4.content.ContextCompat.*;
  */
 
 public class outadapter extends BaseAdapter {
-    GreenDaoUtil util = new GreenDaoUtil(this.context, "account");
+
 
     public static List<Outaccount> outaccountList;
     public Context context;
@@ -40,8 +41,10 @@ public class outadapter extends BaseAdapter {
     public outadapter(Context context) {
         super();
         this.context=context;
+        util=new GreenDaoUtil(context,"account");
     }
     private DaoSession session;
+    GreenDaoUtil util;
 
     @Override
     public int getCount() {
@@ -105,13 +108,15 @@ public class outadapter extends BaseAdapter {
                 new AlertDialog.Builder(context).setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                         session=util.getSession();
-                        session.getOutaccountDao().deleteByKey(outaccountList.get(i).getId());
+                        session=util.getSession();
+                        session.getOutaccountDao().deleteByKey(outaccountList.get(i+1).getId());
+                        Intent intent=new Intent();
+                        intent.setClass((context),Home.class);
+                        context.startActivity(intent);
                     }
                 }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        map.clear();
                         //Fragment  o=(Fragment)view.getParent().getParent().getParent();
                         //o.getActivity();
                     }

@@ -1,5 +1,6 @@
 package chen.com.myaccount;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +44,9 @@ public class OutComeAddActivity extends AppCompatActivity {
                 session = util.getSession();
                 Outaccount outaccount= new Outaccount(money, date, type, address, mark);
                 long s=session.getOutaccountDao().insert(outaccount);
+                Intent intent=new Intent();
+                intent.setClass(OutComeAddActivity.this,Home.class);
+                startActivity(intent);
                 if ((int)s>0)
                 {
                     Toast.makeText(OutComeAddActivity.this,"添加成功",Toast.LENGTH_SHORT);

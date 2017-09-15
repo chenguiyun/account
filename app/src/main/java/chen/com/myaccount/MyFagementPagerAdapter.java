@@ -30,7 +30,7 @@ public class MyFagementPagerAdapter extends FragmentPagerAdapter {
 
     public  void destoryItem(ViewGroup viewGroup,int position,Object object){
         System.out.println("position"+position);
-        super.destroyItem(viewGroup,position,object);
+        //super.destroyItem(viewGroup,position,object);
     }
     @Override
     public Fragment getItem(int position) {
