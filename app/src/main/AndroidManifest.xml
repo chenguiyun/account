@@ -24,19 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OutcomeeditsActivity"></activity>
-        <activity android:name=".AccountFlag">
-
-        </activity>
-
-        <activity android:name=".FlagManage">
-        </activity>
-        <activity android:name=".ShowInfo">
-        </activity>
-        <activity android:name=".IndexActivity">
-
-        </activity>
-        <activity android:name=".OutActivity"></activity>
+        <activity android:name=".OutcomeeditsActivity" />
+        <activity android:name=".AccountFlag" />
+        <activity android:name=".FlagManage" />
+        <activity android:name=".ShowInfo" />
+        <activity android:name=".IndexActivity" />
+        <activity android:name=".OutActivity" />
+        <activity android:name=".IncomeaddActivity" />
+        <activity android:name=".IncomeeditActivity"></activity>
     </application>
 
 </manifest>

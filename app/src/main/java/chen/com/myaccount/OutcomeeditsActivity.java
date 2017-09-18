@@ -25,7 +25,7 @@ public class OutcomeeditsActivity extends AppCompatActivity {
     private String mark;
 
     private DaoSession session;
-
+    private Button btnadincome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

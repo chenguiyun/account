@@ -12,14 +12,14 @@ import android.view.ViewGroup;
 public class MyFagementPagerAdapter extends FragmentPagerAdapter {
     private final  int PAGER_COUNT = 4;
     private OutComeFragment payment=null;
-    private Revenuement revenuement=null;
+    private incomemanageFragment revenuement=null;
     private Installment installment=null;
     private FlagshowinfoFragment notement=null;
 
     public MyFagementPagerAdapter(FragmentManager fm) {
         super(fm);
         payment=new OutComeFragment();
-        revenuement=new Revenuement();
+        revenuement=new incomemanageFragment();
         notement=new FlagshowinfoFragment();
         installment=new Installment();
     }
