@@ -46,9 +46,8 @@ public class Installment extends Fragment {
         mylistview = (ListView)view.findViewById(R.id.list_item);
         list.add("密码设置");
         list.add("退出");
-        ArrayAdapter<String> myArrayAdapter = new ArrayAdapter<String>
-                (getActivity(), R.layout.activity_main, list);
-        mylistview.setAdapter(myArrayAdapter);
+        //ArrayAdapter<String> myArrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.activity_install, list);
+        //mylistview.setAdapter(myArrayAdapter);
         mylistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
