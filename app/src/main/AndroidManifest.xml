@@ -18,11 +18,7 @@
         </activity>
         <activity android:name=".OutComeAddActivity" />
         <activity android:name=".Home">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".OutcomeeditsActivity" />
         <activity android:name=".AccountFlag" />
@@ -32,6 +28,14 @@
         <activity android:name=".OutActivity" />
         <activity android:name=".IncomeaddActivity" />
         <activity android:name=".IncomeeditActivity"></activity>
+        <activity android:name=".login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
