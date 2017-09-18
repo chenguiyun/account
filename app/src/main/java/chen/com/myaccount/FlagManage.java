@@ -57,7 +57,7 @@ public class FlagManage extends Activity{
                 session.getFlagDao().update(flag);
                 Toast.makeText(FlagManage.this,"修改成功",Toast.LENGTH_SHORT).show();
                 Intent intent= null;
-                intent=new Intent(FlagManage.this,ShowInfo.class);
+                intent=new Intent(FlagManage.this,Home.class);
                 startActivity(intent);
             }
         });
@@ -71,7 +71,7 @@ public class FlagManage extends Activity{
                 session.getFlagDao().deleteByKey(strid);
                 Toast.makeText(FlagManage.this,"删除成功！",Toast.LENGTH_SHORT).show();
                 Intent intent= null;
-                intent=new Intent(FlagManage.this,ShowInfo.class);
+                intent=new Intent(FlagManage.this,Home.class);
                 startActivity(intent);
             }
         });

@@ -14,13 +14,13 @@ public class MyFagementPagerAdapter extends FragmentPagerAdapter {
     private OutComeFragment payment=null;
     private Revenuement revenuement=null;
     private Installment installment=null;
-    private Notement notement=null;
+    private FlagshowinfoFragment notement=null;
 
     public MyFagementPagerAdapter(FragmentManager fm) {
         super(fm);
         payment=new OutComeFragment();
         revenuement=new Revenuement();
-        notement=new Notement();
+        notement=new FlagshowinfoFragment();
         installment=new Installment();
     }
 

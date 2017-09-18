@@ -47,7 +47,7 @@ public class AccountFlag extends Activity{
                 }
                 long id= session.getFlagDao().insert(new Flag(strFlag));
                 Toast.makeText(AccountFlag.this,id>0?"添加成功":"添加失败",Toast.LENGTH_SHORT).show();
-                intent=new Intent(AccountFlag.this,ShowInfo.class);
+                intent=new Intent(AccountFlag.this,Home.class);
                 startActivity(intent);
             }
         });
@@ -62,7 +62,7 @@ public class AccountFlag extends Activity{
             /**
              * 跳到添加页面
              */
-            intent=new Intent(AccountFlag.this,ShowInfo.class);
+            intent=new Intent(AccountFlag.this,Home.class);
             startActivity(intent);
 
             }

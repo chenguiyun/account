@@ -13,14 +13,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public  class Home extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener,
-        ViewPager.OnPageChangeListener,OutComeFragment.OnFragmentInteractionListener{
+        ViewPager.OnPageChangeListener,OutComeFragment.OnFragmentInteractionListener,FlagshowinfoFragment.OnFragmentInteractionListener{
     private TextView txt_topbar;
     private RadioGroup rg_tab_bar;
     private RadioButton rb_channel;
     private RadioButton rb_message;
     private RadioButton rb_better;
     private RadioButton rb_setting;
-    private ViewPager vpager;
+    public ViewPager vpager;
 
     private MyFagementPagerAdapter mAdapter;
 

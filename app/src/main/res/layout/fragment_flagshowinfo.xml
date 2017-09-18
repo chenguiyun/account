@@ -1,0 +1,43 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="chen.com.myaccount.FlagshowinfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/iteminfo"
+        android:layout_marginTop="5dp"
+        android:weightSum="1"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/linearLayout1"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:id="@+id/lvinfo"
+
+                android:scrollbarAlwaysDrawVerticalTrack="true">
+
+            </ListView>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/showinfo_btnflag"
+                android:id="@+id/btnAddFlag"
+                android:gravity="center"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
